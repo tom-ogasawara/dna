@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import SidePanel from './components/SidePanel';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Header</h2>
+          Header
         </div>
+        <SidePanel></SidePanel>
+        
         Body
       </div>
     );
