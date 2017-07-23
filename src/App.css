@@ -5,5 +5,10 @@
 .App-header {
   background-color: #222;
   height: 40px;
+  padding: 20px;
   color: white;
+}
+
+.large-icon {
+  font-size: 48px;
 }

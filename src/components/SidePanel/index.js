@@ -7,24 +7,47 @@ class SidePanel extends Component {
     super(props);
 
     this.state = {
-      panelOpen: true
+      panelOpen: true,
+      sequenceOpen: false
     };
   }
 
-  toggleSidepanel() {
+  toggleSidePanel() {
     this.setState({ panelOpen: !this.state.panelOpen });
-    console.log('this.state: ', this.state);
+  }
+
+  toggleSequence() {
+    this.setState({ sequenceOpen: !this.state.sequenceOpen });
   }
 
   render() {
-    const panelStatus = this.state.panelOpen ? "open" : "closed";
-    console.log('panelStatus: ', panelStatus);
-    return (
-      <div className={`side-panel ${panelStatus}`}>
-        <div className="toggle-button" onClick={() => this.toggleSidepanel()}>
+    const panelStatus = this.state.panelOpen ? 'open' : 'closed';
+    const panelIcon = this.state.panelOpen ? 'close' : 'menu';
+    const sequenceStatus = this.state.sequenceOpen ? 'open' : 'closed';
+    const sequenceIcon = this.state.sequenceOpen
+      ? 'visibility_off'
+      : 'visibility';
 
+    return (
+      <div>
+
+      <div className={`side-panel ${panelStatus}`}>
+        <div className="button" onClick={() => this.toggleSidePanel()}>
+          <i className="material-icons large-icon">{panelIcon}</i>
+          <div className="title">OPTIONS</div>
         </div>
-        Side Panel
+        <div className="button" onClick={() => {}}>
+          <i className="material-icons large-icon">palette</i>
+          <div className="title">COLORS</div>
+        </div>
+        <div className="button" onClick={() => this.toggleSequence()}>
+          <i className="material-icons large-icon">{sequenceIcon}</i>
+          <div className="title">SEQUENCE</div>
+        </div>
+      </div>
+        <div className={`sequence ${sequenceStatus}`}>
+          sequence
+        </div>
       </div>
     );
   }
