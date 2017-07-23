@@ -33,7 +33,7 @@
   font-weight: bold;
 }
 
-.options {
+.right-menu {
   position: absolute;
   top: 80px;
   right: 0;
@@ -42,13 +42,16 @@
   background: #fff;
   transition: 0.2s ease-in-out;
   overflow-x: hidden;
+
 }
 
-.options.open {
+.right-menu.open {
   width: 300px;
+  border-left: 20px solid #292d40;
+
 }
 
-.options.closed {
+.right-menu.closed {
   width: 0px;
 }
 

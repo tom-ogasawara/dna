@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Sequence from '../Sequence';
 import MenuButton from '../MenuButton';
+import Colors from '../Colors';
+import Options from '../Options';
+
 import './style.css';
 
 class Menu extends Component {
@@ -14,27 +17,37 @@ class Menu extends Component {
       sequenceOpen: false
     };
 
-    this.toggleMenu = this.toggleMenu.bind(this);
-    this.toggleOptions = this.toggleOptions.bind(this);
-    this.toggleColors = this.toggleColors.bind(this);
-    this.toggleSequence = this.toggleSequence.bind(this);
+    // this.toggleMenu = this.toggleMenu.bind(this);
+    // this.toggleOptions = this.toggleOptions.bind(this);
+    // this.toggleColors = this.toggleColors.bind(this);
+    // this.toggleSequence = this.toggleSequence.bind(this);
   }
-// refactor these all into one function, pass it a "panel type" 
-// or something to determine which panel to toggle.
-  toggleMenu() {
-    this.setState({ menuOpen: !this.state.menuOpen });
-  }
+  // refactor these all into one function, pass it a "panel type"
+  // or something to determine which panel to toggle.
 
-  toggleOptions() {
-    this.setState({ optionsOpen: !this.state.optionsOpen });
-  }
-
-  toggleColors() {
-    this.setState({ colorsOpen: !this.state.colorsOpen });
-  }
-
-  toggleSequence() {
-    this.setState({ sequenceOpen: !this.state.sequenceOpen });
+  togglePanels(panelType) {
+    switch (panelType) {
+      case 'menu':
+        this.setState({ menuOpen: !this.state.menuOpen });
+        break;
+      case 'options':
+        if (this.state.colorsOpen) {
+          this.setState({ colorsOpen: false });
+        }
+        this.setState({ optionsOpen: !this.state.optionsOpen });
+        break;
+      case 'colors':
+         if (this.state.optionsOpen) {
+          this.setState({ optionsOpen: false });
+        }
+        this.setState({ colorsOpen: !this.state.colorsOpen });
+        break;
+      case 'sequence':
+        this.setState({ sequenceOpen: !this.state.sequenceOpen });
+        break;
+      default:
+        return;
+    }
   }
 
   render() {
@@ -53,30 +66,30 @@ class Menu extends Component {
       <div>
         <div className={`menu ${menuStatus}`}>
           <MenuButton
-            handleClick={this.toggleMenu}
+            handleClick={() => this.togglePanels('menu')}
             iconName={menuIcon}
             title="MENU"
           />
           <MenuButton
-            handleClick={this.toggleOptions}
+            handleClick={() => this.togglePanels('options')}
             iconName={optionsIcon}
             title="OPTIONS"
           />
           <MenuButton
-            handleClick={this.toggleColors}
+            handleClick={() => this.togglePanels('colors')}
             iconName={colorsIcon}
             title="COLORS"
           />
           <MenuButton
-            handleClick={this.toggleSequence}
+            handleClick={() => this.togglePanels('sequence')}
             iconName={sequenceIcon}
             title="SEQUENCE"
           />
         </div>
-        <div className={`options ${optionsStatus}`}>
+        <div className={`right-menu options ${optionsStatus}`}>
           options
         </div>
-        <div className={`options ${colorsStatus}`}>
+        <div className={`right-menu colors ${colorsStatus}`}>
           colors
         </div>
         <div className={`sequence ${sequenceStatus}`}>

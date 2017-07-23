@@ -8,7 +8,7 @@ const MenuButton = props => {
   } = props;
 
   return (
-    <div className="button" onClick={() => handleClick()}>
+    <div className="button" onClick={handleClick}>
       <i className="material-icons large-icon">{iconName}</i>
       <div className="title">{title}</div>
     </div>
