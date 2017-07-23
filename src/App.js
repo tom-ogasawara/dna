@@ -8,7 +8,8 @@ class App extends Component {
     return (
       <div className="app">
         <div className="app-header">
-          DNA Visualization
+          <i className="material-icons large-icon">home</i>
+          <div className="title">DNA Visualization</div>
         </div>
         <Menu />
         <div className="app-body">

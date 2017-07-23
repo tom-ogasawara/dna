@@ -1,5 +1,4 @@
 .menu {
-  /* height: calc(100vh - 80px);  */
   height: 240px;
   color: #4b505e;
   background: #fff;
@@ -9,6 +8,7 @@
   align-content: flex-end;
   overflow-x: hidden;
   z-index: 2;
+  transition: 0.2s ease-in-out;
 }
 
 .menu.open {
@@ -26,7 +26,6 @@
   justify-content: flex-start;
   height: 80px;
   cursor: pointer;
-  /* background: green; */
 }
 
 .menu .title {
@@ -61,6 +60,7 @@
   left: 0px;
   transition: 0.2s ease-in-out;
   overflow-x: hidden;
+  transition: 0.2s ease-in-out;
 }
 
 .sequence.open {

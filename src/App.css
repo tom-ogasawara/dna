@@ -3,10 +3,15 @@
 }
 
 .app-header {
-  height: 40px;
-  padding: 20px;
-  margin-left: 60px;
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding-left: 16px; 
   font-size: 36px;
+}
+
+.app-header .title {
+  margin-left: 20px;
 }
 
 .large-icon {
