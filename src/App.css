@@ -1,14 +1,19 @@
-.App {
-  text-align: center;
+.app {
+  color: rgb(223, 226, 236)
 }
 
-.App-header {
-  background-color: #222;
+.app-header {
   height: 40px;
   padding: 20px;
-  color: white;
+  margin-left: 60px;
+  font-size: 36px;
 }
 
 .large-icon {
   font-size: 48px;
+}
+
+.app-body {
+  margin-left: 80px;
+  padding: 20px;
 }

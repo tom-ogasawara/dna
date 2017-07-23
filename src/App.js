@@ -6,13 +6,14 @@ import Menu from './components/Menu';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          Header
+      <div className="app">
+        <div className="app-header">
+          DNA Visualization
         </div>
-        <Menu></Menu>
-
-        Body
+        <Menu />
+        <div className="app-body">
+          Body goes here
+        </div>
       </div>
     );
   }

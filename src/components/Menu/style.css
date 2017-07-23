@@ -1,7 +1,8 @@
 .menu {
   /* height: calc(100vh - 80px);  */
   height: 240px;
-  background: red;
+  color: #4b505e;
+  background: #fff;
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -38,7 +39,8 @@
   position: absolute;
   right: 0;
   height: 300px;
-  background: yellow;
+  color: #4b505e;
+  background: #fff;
   transition: 0.2s ease-in-out;
   overflow-x: hidden;
 }
@@ -54,7 +56,7 @@
 .sequence {
   position: absolute;
   height: 200px;
-  background: pink;
+  background: #40485e;
   bottom: 0px;
   left: 0px;
   transition: 0.2s ease-in-out;
