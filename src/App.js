@@ -11,9 +11,11 @@ class App extends Component {
           <i className="material-icons large-icon">home</i>
           <div className="title">DNA Visualization</div>
         </div>
-        <Menu />
         <div className="app-body">
-          Body goes here
+          <Menu />
+          <div className="app-content">
+            Body goes here
+          </div>
         </div>
       </div>
     );

@@ -1,5 +1,5 @@
 .app {
-  color: rgb(223, 226, 236)
+  color: rgb(223, 226, 236);
 }
 
 .app-header {
@@ -19,6 +19,13 @@
 }
 
 .app-body {
-  margin-left: 80px;
+  display: flex;
+}
+
+.app-content {
   padding: 20px;
+  background: #33374b;
+  margin: 0 20px;
+  width: 100%;
+  height: 100%;
 }
