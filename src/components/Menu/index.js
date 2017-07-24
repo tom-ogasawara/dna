@@ -14,7 +14,7 @@ class Menu extends Component {
       menuOpen: true,
       optionsOpen: false,
       colorsOpen: false,
-      sequenceOpen: false
+      sequenceOpen: true
     };
 
     // this.toggleMenu = this.toggleMenu.bind(this);

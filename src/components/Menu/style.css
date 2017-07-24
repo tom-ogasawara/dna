@@ -57,8 +57,7 @@
 
 .sequence {
   position: absolute;
-  height: 200px;
-  background: #40485e;
+  height: 179px;
   bottom: 0px;
   left: 0px;
   transition: 0.2s ease-in-out;
