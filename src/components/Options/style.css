@@ -1,0 +1,21 @@
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  height: 300px;
+  z-index: 3;
+}
+
+.options .section {
+  flex: 1; 
+}
+
+.options .title {
+  font-weight: bold; 
+  font-size: 18px;
+  margin: 20px;
+}
+
+.options .content {
+  margin: 20px;
+}

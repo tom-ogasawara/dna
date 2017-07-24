@@ -1,0 +1,15 @@
+.colors {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+}
+
+.colors .title {
+  font-weight: bold; 
+  font-size: 18px;
+  margin: 20px;
+}
+
+.colors .content {
+  margin: 20px;
+}

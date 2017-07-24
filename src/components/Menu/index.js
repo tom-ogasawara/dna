@@ -12,7 +12,7 @@ class Menu extends Component {
 
     this.state = {
       menuOpen: true,
-      optionsOpen: false,
+      optionsOpen: true,
       colorsOpen: false,
       sequenceOpen: true
     };
@@ -79,11 +79,11 @@ class Menu extends Component {
             title="SEQUENCE"
           />
         </div>
-        <div className={`right-menu options ${optionsStatus}`}>
-          options
+        <div className={`right-menu ${optionsStatus}`}>
+          <Options />
         </div>
-        <div className={`right-menu colors ${colorsStatus}`}>
-          colors
+        <div className={`right-menu ${colorsStatus}`}>
+          <Colors />
         </div>
         <div className={`sequence ${sequenceStatus}`}>
           <Sequence />
