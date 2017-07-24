@@ -7,7 +7,7 @@
   align-content: flex-end;
   overflow-x: hidden;
   z-index: 2;
-  transition: 0.2s ease-in-out;
+  transition: 0.15s ease;
 }
 
 .menu.open {
@@ -40,7 +40,7 @@
   height: 300px;
   color: #4b505e;
   background: #fff;
-  transition: 0.2s ease-in-out;
+  transition: 0.15s ease;
   overflow-x: hidden;
 
 }
@@ -48,7 +48,7 @@
 .right-menu.open {
   width: 300px;
   border-left: 20px solid #292d40;
-
+  border-bottom: 20px solid #292d40;
 }
 
 .right-menu.closed {
@@ -56,12 +56,14 @@
 }
 
 .sequence {
+  background: #292d40;
+  border-top: 20px solid #292d40;
   position: absolute;
   height: 150px;
   bottom: 0px;
   left: 0px;
-  overflow-x: hidden;
-  transition: 0.2s ease-in-out;
+  overflow: hidden;
+  transition: 0.2s ease;
 }
 
 .sequence.open {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Menu from './components/Menu';
+import Visualization from './components/Visualization';
 import './App.css';
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
         <div className="app-body">
           <Menu />
           <div className="app-content">
-            Body goes here
+            <Visualization />
           </div>
         </div>
       </div>
