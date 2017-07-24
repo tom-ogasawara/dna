@@ -11,10 +11,10 @@ class Menu extends Component {
     super(props);
 
     this.state = {
-      menuOpen: true,
-      optionsOpen: true,
+      menuOpen: false,
+      optionsOpen: false,
       colorsOpen: false,
-      sequenceOpen: true
+      sequenceOpen: false
     };
   }
 
@@ -44,48 +44,42 @@ class Menu extends Component {
   }
 
   render() {
-    const menuStatus = this.state.menuOpen ? 'open' : 'closed';
-    const optionsStatus = this.state.optionsOpen ? 'open' : 'closed';
-    const colorsStatus = this.state.colorsOpen ? 'open' : 'closed';
-    const sequenceStatus = this.state.sequenceOpen ? 'open' : 'closed';
-    const menuIcon = this.state.menuOpen ? 'close' : 'menu';
-    const optionsIcon = this.state.optionsOpen ? 'close' : 'settings';
-    const colorsIcon = this.state.colorsOpen ? 'close' : 'palette';
-    const sequenceIcon = this.state.sequenceOpen
-      ? 'visibility_off'
-      : 'visibility';
+    const menuOpen = this.state.menuOpen;
+    const optionsOpen = this.state.optionsOpen;
+    const colorsOpen = this.state.colorsOpen;
+    const sequenceOpen = this.state.sequenceOpen;
 
     return (
       <div>
-        <div className={`menu ${menuStatus}`}>
+        <div className={`menu ${menuOpen ? 'open' : 'closed'}`}>
           <MenuButton
             handleClick={() => this.togglePanels('menu')}
-            iconName={menuIcon}
+            iconName={menuOpen ? 'close' : 'menu'}
             title="MENU"
           />
           <MenuButton
             handleClick={() => this.togglePanels('options')}
-            iconName={optionsIcon}
+            iconName={optionsOpen ? 'close' : 'settings'}
             title="OPTIONS"
           />
           <MenuButton
             handleClick={() => this.togglePanels('colors')}
-            iconName={colorsIcon}
+            iconName={colorsOpen ? 'close' : 'palette'}
             title="COLORS"
           />
           <MenuButton
             handleClick={() => this.togglePanels('sequence')}
-            iconName={sequenceIcon}
+            iconName={sequenceOpen ? 'visibility_off' : 'visibility'}
             title="SEQUENCE"
           />
         </div>
-        <div className={`right-menu ${optionsStatus}`}>
+        <div className={`right-menu ${optionsOpen ? 'open' : 'closed'}`}>
           <Options />
         </div>
-        <div className={`right-menu ${colorsStatus}`}>
+        <div className={`right-menu ${colorsOpen ? 'open' : 'closed'}`}>
           <Colors />
         </div>
-        <div className={`sequence ${sequenceStatus}`}>
+        <div className={`sequence ${sequenceOpen ? 'open' : 'closed'}`}>
           <Sequence />
         </div>
       </div>
