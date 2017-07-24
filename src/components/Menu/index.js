@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Sequence from '../Sequence';
-import MenuButton from '../MenuButton';
-import Colors from '../Colors';
-import Options from '../Options';
 
+import Colors from '../Colors';
+import MenuButton from './MenuButton';
+import Options from '../Options';
+import Sequence from '../Sequence';
 import './style.css';
 
 class Menu extends Component {
@@ -16,14 +16,7 @@ class Menu extends Component {
       colorsOpen: false,
       sequenceOpen: true
     };
-
-    // this.toggleMenu = this.toggleMenu.bind(this);
-    // this.toggleOptions = this.toggleOptions.bind(this);
-    // this.toggleColors = this.toggleColors.bind(this);
-    // this.toggleSequence = this.toggleSequence.bind(this);
   }
-  // refactor these all into one function, pass it a "panel type"
-  // or something to determine which panel to toggle.
 
   togglePanels(panelType) {
     switch (panelType) {
@@ -37,7 +30,7 @@ class Menu extends Component {
         this.setState({ optionsOpen: !this.state.optionsOpen });
         break;
       case 'colors':
-         if (this.state.optionsOpen) {
+        if (this.state.optionsOpen) {
           this.setState({ optionsOpen: false });
         }
         this.setState({ colorsOpen: !this.state.colorsOpen });

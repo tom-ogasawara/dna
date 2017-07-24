@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 
 const MenuButton = props => {
-  const {
-    handleClick,
-    iconName,
-    title
-  } = props;
+  const { handleClick, iconName, title } = props;
 
   return (
     <div className="button" onClick={handleClick}>
