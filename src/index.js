@@ -2,8 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
+import configureStore from './store/store';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+document.addEventListener('DOMContentLoaded', () => {
+  let store = configureStore();
+
+  const root = document.getElementById('root');
+  ReactDOM.render(<App store={store}/>, root);
+  registerServiceWorker();
+});
