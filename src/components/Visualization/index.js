@@ -11,14 +11,14 @@ class Visualization extends Component {
   renderNodes(mockSequence) {
     let nodes = [];
     for (let i = 0; i < mockSequence.length; i++) {
-      nodes.push({key: i, id: i, label: mockSequence[i] });
+      nodes.push({ id: i, label: mockSequence[i] });
     }
-
+    console.log('nodes: ', nodes);
     return nodes.map(node => {
       return (
         <ForceGraphNode
           key={node.id}
-          node={{ key: node.key, id: node.id, label: node.label }}
+          node={{ id: node.id, label: node.label }}
           fill="white"
         />
       );
@@ -28,18 +28,38 @@ class Visualization extends Component {
   renderLinks(mockSequence, mockDBNSequence) {
     let links = [];
     for (let i = 0; i < mockSequence.length - 1; i++) {
-      links.push({ key: i, source: i, target: i + 1 });
+      links.push({ source: i, target: i + 1 });
     }
-
+    console.log('links: ', links);
     return links.map(link => {
       return (
-        <ForceGraphLink key={link.id} link={{ key: link.key, source: link.source, target: link.target }} />
+        <ForceGraphLink link={{ source: link.source, target: link.target }} />
       );
     });
   }
 
   renderConnectors(mockDBNSequence) {
-    let i = 1;
+    let fromNodes = [];
+    let toNodes = [];
+    let connectors = [];
+    for (let i = 0; i < mockDBNSequence.length - 1; i++) {
+      if (mockDBNSequence[i] === '(') {
+        fromNodes.push(i);
+      } else if (mockDBNSequence[i] === ')') {
+        connectors.push({ source: fromNodes[fromNodes.length - 1], target: i });
+        fromNodes.pop();
+      }
+    }
+    // console.log('fromNodes: ', fromNodes);
+    // console.log('toNodes: ', toNodes);
+    console.log('connectors: ', connectors);
+    return connectors.map(connector => {
+      return (
+        <ForceGraphLink
+          link={{ source: connector.source, target: connector.target }}
+        />
+      );
+    });
   }
 
   render() {
@@ -49,6 +69,8 @@ class Visualization extends Component {
     return (
       <div className="visualization">
         <InteractiveForceGraph
+          animation
+          strength={1}
           simulationOptions={{ height: 300, width: 300 }}
           labelAttr="label"
           onSelectNode={node => console.log(node)}
@@ -56,6 +78,7 @@ class Visualization extends Component {
         >
           {this.renderNodes(mockSequence)}
           {this.renderLinks(mockSequence, mockDBNSequence)}
+          {this.renderConnectors(mockDBNSequence)}
         </InteractiveForceGraph>
       </div>
     );
