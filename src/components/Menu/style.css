@@ -37,7 +37,6 @@
   position: absolute;
   top: 80px;
   right: 0;
-  height: 300px;
   color: #4b505e;
   background: #fff;
   transition: 0.15s ease;
@@ -46,7 +45,7 @@
 }
 
 .right-menu.open {
-  width: 300px;
+  width: 360px;
   border-left: 20px solid #292d40;
   border-bottom: 20px solid #292d40;
 }
