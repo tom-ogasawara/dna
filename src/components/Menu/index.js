@@ -13,7 +13,7 @@ class Menu extends Component {
     this.state = {
       menuOpen: false,
       optionsOpen: false,
-      colorsOpen: true,
+      colorsOpen: false,
       sequenceOpen: false
     };
   }

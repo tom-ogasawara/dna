@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  InteractiveForceGraph,
+  ForceGraph,
   ForceGraphNode,
   ForceGraphLink
 } from 'react-vis-force';
@@ -13,7 +13,7 @@ class Visualization extends Component {
 
     this.state = {
       strength: {
-        charge: -100
+        charge: -40,
       }
     };
   }
@@ -62,7 +62,7 @@ class Visualization extends Component {
     // console.log('links: ', links);
     return links.map(link => {
       return (
-        <ForceGraphLink link={{ source: link.source, target: link.target }} />
+        <ForceGraphLink link={{ source: link.source, target: link.target, distance: 5 }} />
       );
     });
   }
@@ -103,29 +103,26 @@ class Visualization extends Component {
 
     return (
       <div className="visualization">
-        <button
-          className="showcase-button"
-          onClick={() => this.setState({ strength: Math.random() * 60 - 30 })}
-        >
-          {' '}REWEIGHT{' '}
-        </button>
-        <InteractiveForceGraph
+        <ForceGraph
           zoom={true}
           strength={strength}
           simulationOptions={{
-            height: 300,
+            height: 500,
             width: 600,
             animate: true,
             strength: strength,
+            alpha: 1,
+            radiusMargin: 0.1
           }}
           labelAttr="label"
+          showLabels={true}
           onSelectNode={node => console.log(node)}
           highlightDependencies
         >
-          {this.renderLinks(mockSequence, mockDBNSequence)}
-          {this.renderNodes(mockSequence)}
           {this.renderConnectors(mockDBNSequence)}
-        </InteractiveForceGraph>
+          {this.renderNodes(mockSequence)}
+          {this.renderLinks(mockSequence, mockDBNSequence)}
+        </ForceGraph>
       </div>
     );
   }
