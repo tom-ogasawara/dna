@@ -8,15 +8,6 @@ import {
 import './style.css';
 
 class Visualization extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      strength: {
-        charge: -40,
-      }
-    };
-  }
 
   renderNodes(mockSequence) {
     let nodes = [];
@@ -86,33 +77,29 @@ class Visualization extends Component {
         <ForceGraphLink
           link={{
             source: connector.source,
-            target: connector.target
+            target: connector.target,
           }}
         />
       );
     });
   }
-  createSimulation(options) {}
 
   render() {
     const mockSequence =
       'CAGCACGACACUAGCAGUCAGUGUCAGACUGCAWACAGCACGACACUAGCAGUCAGUGUCAGACUGCAWACAGCACGACACUAGCAGUCAGUGUCAGACUGCAWA';
     const mockDBNSequence =
       '..(((((...(((((...(((((...(((((.....)))))...))))).....(((((...(((((.....)))))...))))).....)))))...)))))..';
-    const { strength } = this.state;
 
     return (
       <div className="visualization">
         <ForceGraph
           zoom={true}
-          strength={strength}
           simulationOptions={{
             height: 500,
             width: 600,
             animate: true,
-            strength: strength,
-            alpha: 1,
-            radiusMargin: 0.1
+            strength: {charge: -50},
+            alpha: 0.9,
           }}
           labelAttr="label"
           showLabels={true}

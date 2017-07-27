@@ -30,14 +30,13 @@
   height: 60px;
   width: 60px;
   margin: 5px; 
-  background: red;
   border-radius: 50%;
   opacity: 0.5;
   cursor: pointer;
 }
 
 .cell:hover {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .cell.selected {
